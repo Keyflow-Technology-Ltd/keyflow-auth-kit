@@ -106,6 +106,30 @@ public struct KeyflowAuthClient: Sendable {
         )
     }
 
+    /// Consumes a handoff token (issued by mintHandoff on the source
+    /// product) and returns a full access + refresh pair for the
+    /// target product. Called by the target app's deep-link handler.
+    public func exchangeHandoff(
+        handoffToken: String,
+        product: KeyflowProduct,
+        deviceId: String,
+    ) async throws -> FederatedSignInResponse {
+        struct Body: Encodable {
+            let handoffToken: String
+            let product: String
+            let deviceId: String
+        }
+        return try await send(
+            path: "/api/handoff/exchange",
+            method: "POST",
+            body: Body(
+                handoffToken: handoffToken,
+                product: product.rawValue,
+                deviceId: deviceId,
+            ),
+        )
+    }
+
     // MARK: - Password reset
 
     public func forgotPassword(email: String) async throws {
