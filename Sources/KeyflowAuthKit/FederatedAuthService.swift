@@ -94,4 +94,19 @@ public final class FederatedAuthService: ObservableObject {
             targetProduct: target,
         )
     }
+
+    /// Called by the app that received a `<product>://handoff?token=…`
+    /// deep link. Exchanges the handoff token for a real session and
+    /// transitions isSignedIn to true.
+    public func acceptHandoff(_ handoffToken: String) async throws {
+        let deviceId = deviceIdentity.current()
+        let response = try await client.exchangeHandoff(
+            handoffToken: handoffToken,
+            product: product,
+            deviceId: deviceId,
+        )
+        await tokenStore.saveSignIn(response)
+        self.currentUser = response.user
+        self.isSignedIn = true
+    }
 }
