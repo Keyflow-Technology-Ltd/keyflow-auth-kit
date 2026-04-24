@@ -8,7 +8,7 @@ let package = Package(
     name: "KeyflowAuthKit",
     platforms: [
         .iOS(.v17),
-        .macOS(.v13),
+        .macOS(.v14),
     ],
     products: [
         .library(
@@ -22,6 +22,10 @@ let package = Package(
         .library(
             name: "KeyflowAIKit",
             targets: ["KeyflowAIKit"],
+        ),
+        .library(
+            name: "KeyflowActionInboxUI",
+            targets: ["KeyflowActionInboxUI"],
         ),
     ],
     dependencies: [],
@@ -37,6 +41,10 @@ let package = Package(
         .target(
             name: "KeyflowAIKit",
             dependencies: ["KeyflowEventsKit"],
+        ),
+        .target(
+            name: "KeyflowActionInboxUI",
+            dependencies: ["KeyflowAIKit"],
         ),
         .testTarget(
             name: "KeyflowAuthKitTests",
