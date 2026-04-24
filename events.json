@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0",
+  "description": "Canonical event taxonomy for the Keyflow ecosystem. Source of truth for PostHog event names across 3 iOS apps, 3 backends, and the auth service. Keep this file in lockstep with Sources/KeyflowEventsKit/Events.swift (Swift) and keyflow-auth/src/lib/events.ts (TS twin).",
+  "categories": [
+    {
+      "name": "Session",
+      "events": [
+        { "key": "signin_succeeded", "description": "User successfully signed in" },
+        { "key": "signin_failed", "description": "Sign-in attempt rejected" },
+        { "key": "signout_initiated", "description": "User tapped sign out" },
+        { "key": "handoff_accepted", "description": "Federated handoff token exchanged for session" }
+      ]
+    },
+    {
+      "name": "Onboarding",
+      "events": [
+        { "key": "onboarding_started", "description": "First-launch onboarding shown" },
+        { "key": "onboarding_completed", "description": "Onboarding finished to dashboard" },
+        { "key": "onboarding_skipped", "description": "User skipped onboarding" }
+      ]
+    },
+    {
+      "name": "FirstValue",
+      "events": [
+        { "key": "first_lead_added", "description": "Agent added their first lead" },
+        { "key": "first_listing_created", "description": "Agent created their first listing" },
+        { "key": "first_deal_created", "description": "Agent created their first deal" },
+        { "key": "first_renewal_initiated", "description": "Agent initiated their first renewal" }
+      ]
+    },
+    {
+      "name": "Hero",
+      "events": [
+        { "key": "hero_import_completed", "description": "LeadsFlow bulk import hero finished" },
+        { "key": "hero_listing_published", "description": "DealsFlow title-deed → portals hero finished" },
+        { "key": "hero_renewal_sent", "description": "LeaseFlow renewal offer hero finished" }
+      ]
+    },
+    {
+      "name": "AI",
+      "events": [
+        { "key": "ai_suggestion_shown", "description": "AIAction surfaced to user" },
+        { "key": "ai_suggestion_accepted", "description": "User accepted AIAction" },
+        { "key": "ai_suggestion_rejected", "description": "User rejected AIAction" },
+        { "key": "ai_suggestion_auto_accepted", "description": "AIAction auto-approved via preference" },
+        { "key": "ai_suggestion_rationale_viewed", "description": "User expanded rationale" }
+      ]
+    },
+    {
+      "name": "Communication",
+      "events": [
+        { "key": "connect_message_sent", "description": "WhatsApp message sent via Connect" },
+        { "key": "connect_message_received", "description": "WhatsApp message arrived via Connect" },
+        { "key": "auto_reply_draft_shown", "description": "AI-drafted auto-reply surfaced for approval" },
+        { "key": "voice_note_transcribed", "description": "Voice note → text + structured signal extraction" }
+      ]
+    },
+    {
+      "name": "Handoffs",
+      "events": [
+        { "key": "lead_converted_to_listing", "description": "LeadsFlow seller → DealsFlow listing handoff" },
+        { "key": "lead_converted_to_deal_pipeline", "description": "LeadsFlow buyer → DealsFlow deal pipeline" },
+        { "key": "deal_closed_to_lease", "description": "DealsFlow closed deal → LeaseFlow new lease" },
+        { "key": "universal_search_performed", "description": "Cross-app universal search query executed" }
+      ]
+    },
+    {
+      "name": "Viral",
+      "events": [
+        { "key": "team_invite_sent", "description": "User invited a teammate" },
+        { "key": "team_invite_accepted", "description": "Invitee accepted and signed up" },
+        { "key": "share_link_opened", "description": "Public shareable artefact link opened" },
+        { "key": "attribution_signup", "description": "Signup carried an attribution code" }
+      ]
+    },
+    {
+      "name": "Signature",
+      "events": [
+        { "key": "deal_closed", "description": "Deal moved to closed-won (signature moment)" },
+        { "key": "listing_published", "description": "Listing published to a portal (signature moment)" },
+        { "key": "renewal_completed", "description": "Lease renewal signed (signature moment)" },
+        { "key": "lead_assigned", "description": "Lead assigned to an agent (signature moment)" }
+      ]
+    },
+    {
+      "name": "Documents",
+      "events": [
+        { "key": "document_generated", "description": "AI generated a document draft (contract/invoice/email)" },
+        { "key": "document_approval_requested", "description": "Agent submitted edited doc for admin approval" },
+        { "key": "document_approval_resolved", "description": "Admin approved or rejected pending doc" }
+      ]
+    },
+    {
+      "name": "Retention",
+      "events": [
+        { "key": "review_prompt_shown", "description": "SKStoreReviewController prompt shown after 5th signature moment" },
+        { "key": "daily_brief_opened", "description": "User opened the 7:30am daily brief push notification" }
+      ]
+    }
+  ]
+}
