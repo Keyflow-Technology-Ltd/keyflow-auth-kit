@@ -19,6 +19,10 @@ let package = Package(
             name: "KeyflowEventsKit",
             targets: ["KeyflowEventsKit"],
         ),
+        .library(
+            name: "KeyflowAIKit",
+            targets: ["KeyflowAIKit"],
+        ),
     ],
     dependencies: [],
     targets: [
@@ -29,6 +33,10 @@ let package = Package(
         .target(
             name: "KeyflowEventsKit",
             dependencies: [],
+        ),
+        .target(
+            name: "KeyflowAIKit",
+            dependencies: ["KeyflowEventsKit"],
         ),
         .testTarget(
             name: "KeyflowAuthKitTests",
